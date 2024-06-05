@@ -19,9 +19,17 @@ dependencies {
     implementation ("io.grpc:grpc-protobuf-lite:1.64.0")
     compileOnly("org.apache.tomcat:annotations-api:6.0.53") // necessary for Java 9+
     implementation ("org.slf4j:slf4j-api:1.7.36")
-    implementation ("ch.qos.logback:logback-classic:1.2.11")
+    implementation ("ch.qos.logback:logback-classic:1.2.12")
 
+    // JUnit Jupiter API and Engine for unit testing
     testImplementation("junit:junit:4.13.2")
+    testImplementation ("org.junit.jupiter:junit-jupiter-api:5.7.0")
+    testRuntimeOnly ("org.junit.jupiter:junit-jupiter-engine:5.7.0")
+}
+
+tasks.test {
+    useJUnitPlatform()
+    // Additional configurations can be added here
 }
 
 protobuf {

@@ -1,6 +1,6 @@
 package com.github.ochuerta.grpc.greeting.client;
 
-import com.proto.dummy.DummyServiceGrpc;
+//import com.proto.dummy.DummyServiceGrpc;
 import com.proto.greet.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
@@ -9,7 +9,7 @@ public class GreetingClient {
     public static void main(String[] args) {
         System.out.println("Hello, I'm a gRPC Client!");
 
-        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50051)
+        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50052)
                 .usePlaintext()
                 .build();
 
@@ -41,10 +41,10 @@ public class GreetingClient {
         // No complex data transformations or algorithms are involved in this code snippet. It simply creates the necessary
         // objects for communicating with the gRPC server and sending data to it.
         GreetServiceGrpc.GreetServiceBlockingStub greetClient = GreetServiceGrpc.newBlockingStub(channel);
-        Greeting greeting = Greeting.newBuilder()
-                .setFirstName("Oscar")
-                .setLastName("Huerta")
-                .build();
+//        Greeting greeting = Greeting.newBuilder()
+//                .setFirstName("Oscar")
+//                .setLastName("Huerta")
+//                .build();
 
         // Unary
         // do the same for a GreetingRequest (using protocol buffers)
