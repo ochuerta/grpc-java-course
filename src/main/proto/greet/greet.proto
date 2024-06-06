@@ -28,6 +28,15 @@ message GreetingManyTimesResponse {
   string result = 1;
 }
 
+message LongGreetRequest {
+  Greeting greeting = 1;
+}
+
+message LongGreetResponse {
+  string result = 1;
+}
+
+
 // GreetService is a gRPC service that defines two methods: Greet and GreetManyTimes
 service GreetService {
   // Greet is a unary gRPC method that takes a GreetingRequest and returns a GreetingResponse
@@ -36,4 +45,7 @@ service GreetService {
   // GreetManyTimes is a server-streaming gRPC method that takes a GreetingManyTimesRequest
   // and returns a stream of GreetingManyTimesResponse messages
   rpc GreetManyTimes (GreetingManyTimesRequest) returns (stream GreetingManyTimesResponse) {};
+
+  // Client streaming
+  rpc LongGreet (stream LongGreetRequest) returns (LongGreetResponse) {};
 }
